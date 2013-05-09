@@ -1,0 +1,7 @@
+#!/bin/sh
+
+exec 2>&1
+
+# Spawn multiple instances of the FastCGI program.
+exec spawn-fcgi -n -u bonitomail -U www-data -s /home/bonitomail/cgi/fastcgi.socket -- /usr/bin/multiwatch -f 10 /home/bonitomail/cgi/action.fcgi
+

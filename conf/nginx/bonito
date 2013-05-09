@@ -1,0 +1,20 @@
+server {
+	listen 80 ;
+	rewrite_log on ;
+
+	access_log /var/log/nginx/bonito_access.log ;
+	error_log /var/log/nginx/bonito_error.log error ;
+	server_name bonito.pt ;
+
+	location /action {
+		root   /home/bonitomail/cgi ;
+		fastcgi_pass unix:/home/bonitomail/cgi/fastcgi.socket ;
+		include fastcgi_params ;
+	}
+
+	location / {
+		root   /home/bonitomail/website ;
+		index  index.html ;
+	}
+
+}

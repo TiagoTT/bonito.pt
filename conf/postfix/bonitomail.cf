@@ -1,0 +1,6 @@
+# http://www.postfix.org/pgsql_table.5.html
+hosts    = localhost
+user     = bonitomail
+password = my long password
+dbname   = bonitomail
+query    = select realemail from email where aliasemail = '%s'

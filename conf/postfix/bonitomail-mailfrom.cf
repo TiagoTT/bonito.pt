@@ -1,0 +1,6 @@
+# http://www.postfix.org/pgsql_table.5.html
+hosts    = localhost
+user     = bonitomail
+password = my long password
+dbname   = bonitomail
+query    = select generate_encrypted_mailfrom( '%s', 'tmp.bonito.pt' )
