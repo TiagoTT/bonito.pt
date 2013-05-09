@@ -41,6 +41,7 @@ The software used:
 - Mail Transfer Agent: Postfix
 - Web Server: NGINX
 - Data Base: PostgreSQL
-- Daemon Manager: Daemon Tools
+- Backgound Process Manager: Daemon Tools - Supervise
+- FastCGI Manager: spaw-fcgi and multiwatch
 
 ---
