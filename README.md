@@ -1,13 +1,19 @@
 bonito.pt
 =========
 
-All the code and configurations behind http://bonito.pt/ mail forwarding system.
+All the code and configurations behind [bonito.pt](http://bonito.pt/) mail forwarding system.
 
 ---
 
-The initial purpose of this project was to develop en email forwarding system that could run on a cheap VPS. Therefore, the system was made simple and ligth from the start.
+The initial purpose of this project was to develop en email forwarding system that would:
+- Run on a cheap VPS.
+ Therefore the system was made simple and ligth from the start.
+- Be completely based on Open Source software.
+ So a Linux/Xen VPS was chosen.
 
-This is being published so people using the system can know where their emails are going through.
+This is being published so that:
+- Someone else can used the code and configurations as examples for similar projects.
+- People using the system can know where their emails are going through.
 
 ---
 
@@ -25,8 +31,8 @@ So this is how it works:
 
 ---
 
-The VPS specifications:
-- Virtualization: Xen
+[Chimehost](http://www.chimehost.com/) VPS specifications:
+- Virtualization: [Xen](http://www.xenproject.org/)
 - CPU: 2 vCPUs Intel Xeon E5620 @ 2.40GHz
 - RAM: 256 MB
 - Swap: 512 MB
@@ -34,14 +40,15 @@ The VPS specifications:
 - Bandwidth: 100 MBit/s
 
 The operating system:
-- GNU/Linux Debian 6 64-bit
+- [GNU](http://www.gnu.org/)/[Linux](https://www.kernel.org/) [Debian](http://www.debian.org/) 6 64-bit
 - Linux Kernel 2.6.32-5-amd64
 
-The software used:
-- Mail Transfer Agent: Postfix
-- Web Server: NGINX
-- Data Base: PostgreSQL
-- Backgound Process Manager: Daemon Tools - Supervise
-- FastCGI Manager: spaw-fcgi and multiwatch
+The software used in the system:
+- Mail Transfer Agent: [Postfix](http://www.postfix.org/)
+- Web Server: [NGINX](http://nginx.org/)
+- Data Base: [PostgreSQL](http://www.postgresql.org/)
+- Backgound Process Manager: [daemontools](http://cr.yp.to/daemontools.html)
+- FastCGI Manager: [spaw-fcgi](http://redmine.lighttpd.net/projects/spawn-fcgi/wiki) and [multiwatch](http://redmine.lighttpd.net/projects/multiwatch/wiki)
+- CSS Package: [SAPO INK](http://ink.sapo.pt/)
 
 ---
