@@ -29,16 +29,25 @@ create or replace function confirm_create_request( text )
 returns smallint as $$
 declare
 	rc int;
+	r email%rowtype;
 begin
+	-- Abort if this token has already been validated.
 	if ( select count(1) from request where token = $1 and confirmed is not null ) > 0 then
 		return -1; -- CONFIRM_CREATE_CODE_TOKEN_VALIDATED
+	-- Abort if this token is not found.
 	elsif ( select count(1) from request where token = $1 ) != 1 then
 		return -2; -- CONFIRM_CREATE_CODE_TOKEN_INVALID
 	end if;
 
-	update request set confirmed = now() where action = 'create' and token = $1;
+	-- Mark the request as validated.
+	update request set confirmed = now() where action = 'create' and token = $1 returning aliasemail, realemail into r;
+	--update request set confirmed = now() where action = 'create' and token = $1;
 	GET DIAGNOSTICS rc = ROW_COUNT;
 	if 1 = rc then
+		-- Delete any other request for the same alias and/or real email.
+		-- The first token to be validated wins the race.
+		-- Delete only request that have not yet been confirmed.
+		delete from request where confirmed is null and ( aliasemail = r.aliasemail or realemail = r.realemail ) ;
 		return 0; -- CONFIRM_CREATE_CODE_OK
 	end if;
 
