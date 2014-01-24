@@ -52,3 +52,8 @@ The software used in the system:
 - CSS Package: [SAPO INK](http://ink.sapo.pt/)
 
 ---
+
+Missing features:
+- Change/Disable forwarding rules.
+- Domain key signature for forwarded messages.
+
