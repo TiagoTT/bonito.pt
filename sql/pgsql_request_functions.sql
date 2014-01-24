@@ -17,7 +17,7 @@ begin
 		( $1, $2, 'create', NULL, now(), NULL );
 	GET DIAGNOSTICS rc = ROW_COUNT;
 	if 1 = rc then
-		return 0; -- NEW_CREATE_CODE_REAL_EXISTS
+		return 0; -- NEW_CREATE_CODE_OK
 	end if;
 
 	return -3; -- NEW_CREATE_CODE_BUG
