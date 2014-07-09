@@ -22,7 +22,7 @@ So this is how it works:
 - The MTA reads forwarding rules from the DB.
  - On message reception, the real target address is fetched from the database.
  - The SMTP level sender is changed to a locally generated address to pass SPF checks.
- - The return path for bounces is ensured, as it possible to retrieve the original SMTP level sender from the locally generated address.
+ - The return path for bounces is ensured, as it is possible to retrieve the original SMTP level sender from the locally generated address.
 
 - The web interface allows configuration of forwarding rules on the DB.
  - There is no login, session, user/password nor authentication of any kind.
